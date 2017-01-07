@@ -9,9 +9,11 @@
 		<link rel="stylesheet" href="css/base.css">
 		
 		<!-- Load js files -->
+		<script src="lib/jQuery/jquery.min.js"></script>
 		<script src="lib/angular/angular.min.js"></script>
 		<script src="lib/angular/angular-route.js"></script>
 		<script src="js/controllers/app.js"></script>
+		<script src="js/directives/directives.js"></script>
 		
 	</head>
 	<body ng-controller="angularProjectsCtlr">
@@ -63,8 +65,13 @@
 </script>
 
 <script type="text/ng-template" id="responsiveStatic.html">
-	<div>
-		{{layoutMode}}
+	<div class="layout">
+		<div resize ng-style="style()" class="panel panel-info" id="panel1" mode="{{layoutMode}}">
+  			<div class="panel-heading">Panel-1</div>
+  			<div class="panel-body">
+    			Panel content
+  			</div>
+		</div>
 	</div>
 </script>
 

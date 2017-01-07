@@ -2,7 +2,7 @@
  * Main application controller file
  */
 
-var angularApp = angular.module("angularProjects",['ngRoute']);
+var angularApp = angular.module("angularProjects",['angularProject.directives']);
 
 angularApp.controller("angularProjectsCtlr",['$scope', function($scope){
 	$scope.name = "Hello Angular Projects";
