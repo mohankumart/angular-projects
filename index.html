@@ -41,7 +41,12 @@
 
 <script type="text/ng-template" id="dynamicLayout.html">
 	<div ng-controller="dynamicLayoutCtlr">
-		{{dynamic}}
+		<button type="button" class="btn btn-primary" ng-click="changeLayout('responsiveStatic')">Layout - Responsive and Static Panels</button>
+		<button type="button" class="btn btn-primary" ng-click="changeLayout('responsive')">Layout - Responsive Panels</button>
+		<div class="dashboard-container">
+			<div ng-include ng-if="layoutMode == 'responsiveStatic'" src="'responsiveStatic.html'"></div>
+  			<div ng-include ng-if="layoutMode == 'responsive'" src="'responsive.html'"></div>
+		</div>
 	</div>
 </script>
 
@@ -57,5 +62,15 @@
 	</div>
 </script>
 
+<script type="text/ng-template" id="responsiveStatic.html">
+	<div>
+		{{layoutMode}}
+	</div>
+</script>
 
+<script type="text/ng-template" id="responsive.html">
+	<div>
+		{{layoutMode}}
+	</div>
+</script>
 

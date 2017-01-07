@@ -13,7 +13,10 @@ angularApp.controller("angularProjectsCtlr",['$scope', function($scope){
 }]);
 
 angularApp.controller("dynamicLayoutCtlr",['$scope', function($scope){
-	$scope.dynamic = "Hello dynamic layout";
+	$scope.layoutMode = "responsiveStatic";
+	$scope.changeLayout = function(mode){
+		$scope.layoutMode = mode;
+	}
 }]);
 
 angularApp.controller("tagInputCtlr",['$scope', function($scope){
