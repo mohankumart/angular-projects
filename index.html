@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularProjects">
+	<head>
+		<meta charset="UTF-8">
+		<title>Dynamic Layout</title>
+		
+		<!-- Load css files -->
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/base.css">
+		
+		<!-- Load js files -->
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular/angular-route.js"></script>
+		<script src="js/controllers/app.js"></script>
+		
+	</head>
+	<body ng-controller="angularProjectsCtlr">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+		    	<div class="navbar-header">
+			    	<a class="navbar-brand" href="#">
+			       		Angular Projects
+			      	</a>
+			    </div>
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    	<ul class="nav navbar-nav">
+			        	<li ng-class="{'active': currentView == 'dynamicLayout'}"><a href="#" ng-click="selectRoot('dynamicLayout')">Dynamic Layout <span class="sr-only">(current)</span></a></li>
+			        	<li ng-class="{'active': currentView == 'tagInputs'}"><a href="#"  ng-click="selectRoot('tagInputs')">Tag Inputs</a></li>
+			        	<li ng-class="{'active': currentView == 'scrollTabs'}"><a href="#"  ng-click="selectRoot('scrollTabs')">Scroll Tabs</a></li>
+			      	</ul>
+			    </div>
+		 	</div>
+		</nav>
+		<div class="container-fluid">
+  			<div ng-include ng-if="currentView == 'dynamicLayout'" src="'dynamicLayout.html'"></div>
+  			<div ng-include ng-if="currentView == 'tagInputs'" src="'tagInputs.html'"></div>
+  			<div ng-include ng-if="currentView == 'scrollTabs'" src="'scrollTabs.html'"></div>
+		</div>
+	</body>
+</html>
+
+<script type="text/ng-template" id="dynamicLayout.html">
+	<div ng-controller="dynamicLayoutCtlr">
+		{{dynamic}}
+	</div>
+</script>
+
+<script type="text/ng-template" id="tagInputs.html">
+	<div ng-controller="tagInputCtlr">
+		{{tagInputs}}
+	</div>
+</script>
+
+<script type="text/ng-template" id="scrollTabs.html">
+	<div ng-controller="scrollTabsCtlr">
+		{{scrollTabs}}
+	</div>
+</script>
+
+
+
