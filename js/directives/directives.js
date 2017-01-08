@@ -36,7 +36,13 @@ directives.directive('resize', function ($window) {
 	            		eleHeight = 600 + 20;
 	            	}
             	}else if(mode == 'responsive'){
-            		
+            		if(eleId == 'responsive-panel1' || eleId == 'responsive-panel2' || eleId == 'responsive-panel3' || eleId == 'responsive-panel4'){
+	            		eleWidth = (newValue.w - 75)/4;
+	            		eleHeight = 200;
+	            	}else if(eleId == 'responsive-panel5' || eleId == 'responsive-panel6'){
+	            		eleWidth = (newValue.w - 45)/2;
+	            		eleHeight = 400;
+	            	}
             	}
             	
             	return {

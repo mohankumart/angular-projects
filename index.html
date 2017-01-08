@@ -44,7 +44,7 @@
 <script type="text/ng-template" id="dynamicLayout.html">
 	<div ng-controller="dynamicLayoutCtlr">
 		<button type="button" class="btn btn-primary" ng-click="changeLayout('responsiveStatic')">Layout - Responsive and Static Panels</button>
-		<button type="button" class="btn btn-primary" ng-click="changeLayout('responsive')">Layout - Responsive Panels</button>
+		<button type="button" class="btn btn-primary" ng-click="changeLayout('responsive')">Layout - All Responsive Panels</button>
 		<div class="dashboard-container">
 			<div ng-include ng-if="layoutMode == 'responsiveStatic'" src="'responsiveStatic.html'"></div>
   			<div ng-include ng-if="layoutMode == 'responsive'" src="'responsive.html'"></div>
@@ -81,8 +81,17 @@
 </script>
 
 <script type="text/ng-template" id="responsive.html">
-	<div>
-		{{layoutMode}}
+	<div class="layout">
+		<div class="clearfix">
+			<div class="pull-left margin-right-15" ng-include src="'responsivePanel1.html'"></div>
+			<div class="pull-left margin-right-15" ng-include src="'responsivePanel2.html'"></div>
+			<div class="pull-left margin-right-15" ng-include src="'responsivePanel3.html'"></div>
+			<div class="pull-left" ng-include src="'responsivePanel4.html'"></div>
+		</div>
+		<div class="clearfix">
+			<div class="pull-left margin-right-15" ng-include src="'responsivePanel5.html'"></div>
+			<div class="pull-left" ng-include src="'responsivePanel6.html'"></div>
+		</div>
 	</div>
 </script>
 
@@ -129,6 +138,29 @@
 		</div>
 	</div>
 </script>
+
+<script type="text/ng-template" id="responsivePanel5.html">
+	<div ng-controller="responsivePanel5Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel5" mode="{{layoutMode}}">
+		<div class="panel-heading">
+			Panel-5
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="responsivePanel6.html">
+	<div ng-controller="responsivePanel6Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel6" mode="{{layoutMode}}">
+		<div class="panel-heading">
+			Panel-6
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+	</div>
+</script>
+
 
 <script type="text/ng-template" id="staticPanel.html">
 	<div ng-controller="staticPanelCtlr" resize ng-style="style()" class="panel panel-info" id="static-panel" mode="{{layoutMode}}">

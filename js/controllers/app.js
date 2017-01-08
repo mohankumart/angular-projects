@@ -43,6 +43,13 @@ angularApp.controller("responsivePanel4Ctlr",['$scope', function($scope){
 	
 }]);
 
+angularApp.controller("responsivePanel5Ctlr",['$scope', function($scope){
+	
+}]);
+
+angularApp.controller("responsivePanel6Ctlr",['$scope', function($scope){
+	
+}]);
 
 angularApp.controller("staticPanelCtlr",['$scope', function($scope){
 	
