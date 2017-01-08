@@ -10,7 +10,7 @@
 		
 		<!-- Load js files -->
 		<script src="lib/jQuery/jquery.min.js"></script>
-		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular/angular.js"></script>
 		<script src="lib/angular/angular-route.js"></script>
 		<script src="js/controllers/app.js"></script>
 		<script src="js/directives/directives.js"></script>
@@ -65,12 +65,17 @@
 </script>
 
 <script type="text/ng-template" id="responsiveStatic.html">
-	<div class="layout">
-		<div resize ng-style="style()" class="panel panel-info" id="panel1" mode="{{layoutMode}}">
-  			<div class="panel-heading">Panel-1</div>
-  			<div class="panel-body">
-    			Panel content
-  			</div>
+	<div class="layout clearfix">
+		<div class="pull-left margin-right-15">
+			<div class="clearfix">
+				<div class="pull-left margin-right-15" ng-include src="'responsivePanel1.html'"></div>
+				<div class="pull-left margin-right-15" ng-include src="'responsivePanel2.html'"></div>
+				<div class="pull-left" ng-include src="'responsivePanel3.html'"></div>
+			</div>
+			<div ng-include src="'responsivePanel4.html'"></div>
+		</div>
+		<div class="pull-right">
+			<div ng-include src="'staticPanel.html'"></div>
 		</div>
 	</div>
 </script>
@@ -80,4 +85,60 @@
 		{{layoutMode}}
 	</div>
 </script>
+
+<script type="text/ng-template" id="responsivePanel1.html">
+	<div ng-controller="responsivePanel1Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel1" mode="{{layoutMode}}">
+		<div class="panel-heading">
+			Panel-1
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="responsivePanel2.html">
+	<div ng-controller="responsivePanel2Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel2" mode="{{layoutMode}}">
+		<div class="panel-heading">
+			Panel-2
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="responsivePanel3.html">
+	<div ng-controller="responsivePanel3Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel3" mode="{{layoutMode}}">
+		<div class="panel-heading">
+			Panel-3
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="responsivePanel4.html">
+	<div ng-controller="responsivePanel4Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel4" mode="{{layoutMode}}">
+		<div class="panel-heading">
+			Panel-4
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="staticPanel.html">
+	<div ng-controller="staticPanelCtlr" resize ng-style="style()" class="panel panel-info" id="static-panel" mode="{{layoutMode}}">
+		<div class="panel-heading">
+		Static Panel
+	</div>
+		<div class="panel-body">
+			Static Panel content
+		</div>
+	</div>
+</script>
+	
 

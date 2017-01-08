@@ -27,5 +27,25 @@ angularApp.controller("scrollTabsCtlr",['$scope', function($scope){
 	$scope.scrollTabs = "Hello scroll Tabs";
 }]);
 
+angularApp.controller("responsivePanel1Ctlr",['$scope', function($scope){
+	
+}]);
+
+angularApp.controller("responsivePanel2Ctlr",['$scope', function($scope){
+	
+}]);
+
+angularApp.controller("responsivePanel3Ctlr",['$scope', function($scope){
+	
+}]);
+
+angularApp.controller("responsivePanel4Ctlr",['$scope', function($scope){
+	
+}]);
+
+
+angularApp.controller("staticPanelCtlr",['$scope', function($scope){
+	
+}]);
 
 

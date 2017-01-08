@@ -22,13 +22,18 @@ directives.directive('resize', function ($window) {
             	var eleId = $(element).attr('id'),
     						eleWidth, 
     						eleHeight,
-    						staticPanelWidth = 100;
+    						staticPanelWidth = 250;
             	
             	if(mode == 'responsiveStatic'){
-	            	if(eleId == 'panel1'){
-	            		eleWidth = 500;
-	            		eleHeight = 500;
-	            		
+	            	if(eleId == 'responsive-panel1' || eleId == 'responsive-panel2' || eleId == 'responsive-panel3'){
+	            		eleWidth = (newValue.w - 75 - staticPanelWidth)/3;
+	            		eleHeight = 200;
+	            	}else if(eleId == 'responsive-panel4'){
+	            		eleWidth = eleWidth = (newValue.w - 45 - staticPanelWidth);
+	            		eleHeight = 400;
+	            	}else if(eleId == 'static-panel'){
+	            		eleWidth = staticPanelWidth;
+	            		eleHeight = 600 + 20;
 	            	}
             	}else if(mode == 'responsive'){
             		
@@ -39,7 +44,7 @@ directives.directive('resize', function ($window) {
                 	'height': (eleHeight) + 'px'
                 };
             };
-
+            scope.test ="hello";
         }, true);
 
         w.bind('resize', function () {
