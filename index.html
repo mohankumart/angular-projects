@@ -98,10 +98,10 @@
 <script type="text/ng-template" id="responsivePanel1.html">
 	<div ng-controller="responsivePanel1Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel1" mode="{{layoutMode}}">
 		<div class="panel-heading">
-			Panel-1
+			{{header}}
 		</div>
 		<div class="panel-body">
-			Panel content
+			{{content}}
 		</div>
 	</div>
 </script>
@@ -109,10 +109,10 @@
 <script type="text/ng-template" id="responsivePanel2.html">
 	<div ng-controller="responsivePanel2Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel2" mode="{{layoutMode}}">
 		<div class="panel-heading">
-			Panel-2
+			{{header}}
 		</div>
 		<div class="panel-body">
-			Panel content
+			{{content}}
 		</div>
 	</div>
 </script>
@@ -120,10 +120,10 @@
 <script type="text/ng-template" id="responsivePanel3.html">
 	<div ng-controller="responsivePanel3Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel3" mode="{{layoutMode}}">
 		<div class="panel-heading">
-			Panel-3
+			{{header}}
 		</div>
 		<div class="panel-body">
-			Panel content
+			{{content}}
 		</div>
 	</div>
 </script>
@@ -131,10 +131,10 @@
 <script type="text/ng-template" id="responsivePanel4.html">
 	<div ng-controller="responsivePanel4Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel4" mode="{{layoutMode}}">
 		<div class="panel-heading">
-			Panel-4
+			{{header}}
 		</div>
 		<div class="panel-body">
-			Panel content
+			{{content}}
 		</div>
 	</div>
 </script>
@@ -142,10 +142,10 @@
 <script type="text/ng-template" id="responsivePanel5.html">
 	<div ng-controller="responsivePanel5Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel5" mode="{{layoutMode}}">
 		<div class="panel-heading">
-			Panel-5
+			{{header}}
 		</div>
 		<div class="panel-body">
-			Panel content
+			{{content}}
 		</div>
 	</div>
 </script>
@@ -153,10 +153,10 @@
 <script type="text/ng-template" id="responsivePanel6.html">
 	<div ng-controller="responsivePanel6Ctlr" resize ng-style="style()" class="panel panel-info" id="responsive-panel6" mode="{{layoutMode}}">
 		<div class="panel-heading">
-			Panel-6
+			{{header}}
 		</div>
 		<div class="panel-body">
-			Panel content
+			{{content}}
 		</div>
 	</div>
 </script>
@@ -165,10 +165,10 @@
 <script type="text/ng-template" id="staticPanel.html">
 	<div ng-controller="staticPanelCtlr" resize ng-style="style()" class="panel panel-info" id="static-panel" mode="{{layoutMode}}">
 		<div class="panel-heading">
-		Static Panel
-	</div>
+			{{header}}
+		</div>
 		<div class="panel-body">
-			Static Panel content
+			{{content}}
 		</div>
 	</div>
 </script>
