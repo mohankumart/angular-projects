@@ -12,9 +12,14 @@
 		<script src="lib/jQuery/jquery.min.js"></script>
 		<script src="lib/angular/angular.js"></script>
 		<script src="lib/angular/angular-route.js"></script>
+		<script src="lib/angular/angular-resource.js"></script>
+		<script src="js/services/services.js"></script>
 		<script src="js/controllers/app.js"></script>
 		<script src="js/directives/directives.js"></script>
+		<script src="js/filters/filters.js"></script>
+		<script src="js/templates/templates.js"></script>
 		
+		<script src="lib/angular-bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	</head>
 	<body ng-controller="angularProjectsCtlr">
 		<nav class="navbar navbar-default navbar-fixed-top">
@@ -54,7 +59,7 @@
 
 <script type="text/ng-template" id="tagInputs.html">
 	<div ng-controller="tagInputCtlr">
-		{{tagInputs}}
+		<managetags refreshcallback="getEmails()" name="emails" title="Emails" ng-model="data.emails" manage_id="{{manage_id}}"></managetags>
 	</div>
 </script>
 
