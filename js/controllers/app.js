@@ -3,7 +3,22 @@
  */
 
 var angularApp = angular.module("angularProjects",['angularProjects.services','angularProject.directives','angularProjects.filters','angularProjects.templates','ui.bootstrap']);
-angular.module('angularProjects.templates',["tags-auto-complete.html","manageTagContent.html"]);
+angular.module('angularProjects.templates',["tags-auto-complete.html","manageTagContent.html","tags-input.html","bulkUploadDocumentContent.html"]);
+
+angularApp.constant('CONSTANTS',{
+	'MAX_SAFE_INTEGER': 256,
+	'SUPPORTED_INPUT_TYPES' : ['text', 'email', 'url'],
+	'KEYS' : {
+		    backspace: 8,
+		    tab: 9,
+		    enter: 13,
+		    escape: 27,
+		    space: 32,
+		    up: 38,
+		    down: 40,
+		    comma: 188
+	}
+});
 
 angularApp.controller("angularProjectsCtlr",['$scope', function($scope){
 	$scope.name = "Hello Angular Projects";
@@ -101,7 +116,7 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 			$modalInstance.dismiss('cancel');
 		};
 		$scope.isformError = false;
-		$scope.buluploadMessage = 'All your changes on this screen will be lost, and entries from uploaded file will over-write the current configuration.';
+		$scope.bulkuploadMessage = 'All your changes on this screen will be lost, and entries from uploaded file will over-write the current configuration.';
 		$scope.showBulkUploadScreen = false;
 
 		$scope.hidebulkUploadScreen = function(){
@@ -367,82 +382,14 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 
 		});
 
-		$scope.showtlsapplyallscreen = false;
-
-		$scope.hidetlsapplyscreen = function(){
-			$scope.showtlsapplyallscreen = false;
-		}
-
-		$scope.showtlsapplyscreen = function(){
-			$scope.showtlsapplyallscreen = true;
-		}
-
-		$scope.showConfirmIpscreen = false;
-		$scope.showAddConfirmIpscreen = false;
-
-		$scope.hideIpconfirmscreen = function(){
-			$scope.showConfirmIpscreen = false;
-		}
-
-		$scope.showPortalAccessIpconfirmscreen = function(){
-			var isConfirm = true;
-			$.each($scope.displayTags,function(index,value){
-				if(!value.isRemove){
-					isConfirm = false;
-				}
-			});
-
-			if(!isConfirm){
-				$scope.showConfirmIpscreen = false;
-				if($scope.newTags.length > 0){
-					$scope.showAddConfirmIpscreen = true;
-				}else{
-					$scope.updateTags(false);
-				}
-			}else{
-				if($scope.newTags.length > 0){
-					$scope.showConfirmIpscreen = false;
-					$scope.showAddConfirmIpscreen = true;
-				}else{
-					$scope.showConfirmIpscreen = true;
-				}
-			}
-		}
-
-		$scope.showIpconfirmscreen = function(){
-			var isConfirm = true;
-			$.each($scope.displayTags,function(index,value){
-				if(!value.isRemove){
-					isConfirm = false;
-				}
-			});
-
-			if(!isConfirm){
-				$scope.showConfirmIpscreen = false;
-				$scope.updateTags(false);
-			}else{
-				if($scope.newTags.length > 0){
-					$scope.showConfirmIpscreen = false;
-					$scope.updateTags(false);
-				}else{
-					$scope.showConfirmIpscreen = true;
-				}
-
-			}
-		}
-
-		$scope.hideAddIpconfirmscreen = function(){
-			$scope.showAddConfirmIpscreen = false;
-		}
-
-
 		$scope.managesubmittederror = false;
 		$scope.submitmanagedata = false;
 		$scope.updateTags = function(applyAll){
+			
 			$scope.submitmanagedata = true;
 			$scope.isformError = false;
 			$scope.managesubmittederror = false;
-			if(name == 'sender' || name == 'recipient'){
+			if(name == 'email'){
 				$.each($scope.newTags,function(newtagindex,newtagvalue){
 					if(newtagvalue.invalid == true){
 						$scope.managesubmittederror = true;
@@ -465,22 +412,10 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 				var obj = {};
 				obj[$scope.name] = submittags;
 
-				var saveRulesPromise = saveRules($scope.managedetails,$scope.ruletype,obj);
+				var saveRulesPromise = saveRules(obj);
 				saveRulesPromise.then(function(result){
-					if(result.isError){
-						$scope.isformError = true;
-						$scope.submitmanagedata = false;
-						$scope.formErrorHeading = result.errors.__all__;
-						$scope.formErrors = [];
-						$.each(result.errors,function(key,value){
-							if(key !== '__all__'){
-								$scope.formErrors.push({'name':key,'value':value});
-							}
-						});
-					}else{
-						$scope.isformError = false;
-						$modalInstance.close(result.successMessage);
-					}
+					$scope.isformError = false;
+					$modalInstance.close(result.successMessage);
 				},function(reason){
 
 				});
@@ -490,7 +425,6 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 
 		$modalInstance.result.then(function(message){
 			$scope.refreshcallback();
-			successService.setSuccess(message);
 		});
 
 }]);

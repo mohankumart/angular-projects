@@ -15,6 +15,11 @@ body {
 	margin-left: 5px;
 }
 
+.row {
+	margin-left: 0px;
+	margin-right: 0px;	
+}
+
 /*tag styles - start*/
 tags-input {
   display: block;
@@ -277,6 +282,16 @@ div:focus {
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+
+.inline-pop-box {
+	background-color: #FFF9C7;
+	padding: 15px;
+	margin-left: -15px;
+	margin-right: -15px;
+	border-top: solid 1px #FCCD72;
+	border-bottom: solid 1px #FCCD72;
+}
+
 /*tag styles - end*/
 
 .manageTagModal .modal-dialog {
