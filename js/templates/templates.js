@@ -55,7 +55,7 @@ angular.module("manageTagContent.html", []).run(["$templateCache", function($tem
 		  			"<p ng-if=\"name == 'email'\" class=\"help-block\">Enter valid sending email domains (e.g. example.com).</p>"+
 		  		"</div>"+
 		  		"<div class=\"has-error\">"+
-		  			"<p class=\"help-block\" ng-show=\"managesubmittederror\">Invalid entries</p>"+
+		  			"<p class=\"help-block\" ng-show=\"managesubmittederror\">Enter valid Email Address</p>"+
 		  		"</div>"+
 		  		"<div ng-if=\"!showtlsapplyallscreen && !showConfirmIpscreen && !showAddConfirmIpscreen\" class=\"row margin-top15\">"+
 		  			"<button ng-class=\"{'disabled':(!isManageSave)}\" type=\"submit\"  class=\"btn btn-primary\" ng-click=\"updateTags()\" id=\"savemanageupdatetags\">Save</button>"+
