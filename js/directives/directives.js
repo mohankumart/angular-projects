@@ -235,7 +235,7 @@ directives.directive('tagsInput', ["$timeout","$document","tagsInputConfig","CON
                 addOnSpace: [Boolean, false],
                 addOnComma: [Boolean, true],
                 addOnBlur: [Boolean, true],
-                allowedTagsPattern: [RegExp, /.+/],
+                allowedTagsPattern: [RegExp, /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/],
                 enableEditingLastTag: [Boolean, false],
                 minTags: [Number, 0],
                 maxTags: [Number, CONSTANTS.MAX_SAFE_INTEGER],

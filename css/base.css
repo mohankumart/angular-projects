@@ -204,7 +204,10 @@ tags-input .autocomplete .suggestion-item em {
 .btn-file {
     position: relative;
     overflow: hidden;
+    background-color: #ccc;
+    margin-right: 5px;
 }
+
 .btn-file input[type=file] {
     position: absolute;
     top: 0;
@@ -298,4 +301,11 @@ div:focus {
 	width: 820px !important;
 }
 	
-	
+.margin-left10 {
+	margin-left: 10px;
+}
+
+.margin-right10 {
+	margin-right: 10px;	
+}
+

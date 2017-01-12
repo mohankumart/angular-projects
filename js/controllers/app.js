@@ -40,7 +40,7 @@ angularApp.controller("tagInputCtlr",['$scope', function($scope){
 	$scope.data = {};
 	$scope.getEmails = function(){
 		//populate the emails here
-		$scope.data = {"emails": {"deleteTags": [], "newTags": [], "displayTags": [{"isRemove": false, "type": "display", "tagName": "tmk_mohankumar@yahoo.com"},{"isRemove": false, "type": "display", "tagName": "mohan1629@gmail.com"}]}};
+		$scope.data = tags;
 	};
 	$scope.getEmails();
 }]);
@@ -172,22 +172,13 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 		      		  if(!isUploadTagInDisplayTags && !isUploadTagInNewTags){
 		      			  if(uploadtagName != ""){
 		      				  var pattern,invalid = false;
-		      				  if(name == 'sender'){
-		      					  /*pattern = new RegExp("^(?:\\w|[-+.])+@(?:(?:\\w|[-+])+\\.)+(?:\\w|[-+])+$");
+		      				  if(name == 'emails'){
+		      					  pattern = new RegExp("^(?:\\w|[-+.])+@(?:(?:\\w|[-+])+\\.)+(?:\\w|[-+])+$");
 		      					  if(pattern.test(uploadtagName)){
 		      						  invalid = false;
 		      					  }else{
 		      						  invalid = true;
-		      					  }*/
-		      					  invalid = false;
-		      					  var newEmailTag = {'tagName':uploadtagName,'isRemove':false,'type':'new','invalid':invalid};
-		      				  }else if(name == 'recipient'){
-		      					  /*pattern = new RegExp("(?:\\w|[-+.])+@"+$scope.domain_name,"i");
-		      					  if(pattern.test(uploadtagName)){
-		      						  invalid = false;
-		      					  }else{
-		      						  invalid = true;
-		      					  }*/
+		      					  }
 		      					  invalid = false;
 		      					  var newEmailTag = {'tagName':uploadtagName,'isRemove':false,'type':'new','invalid':invalid};
 		      				  }else{
@@ -219,22 +210,13 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 
 	      			if(!isUploadTagInDisplayTags && !isUploadTagInNewTags){
 	      				var pattern,invalid = false;
-	      				if(name == 'sender'){
-	      					  /*pattern = new RegExp("^(?:\\w|[-+.])+@(?:(?:\\w|[-+])+\\.)+(?:\\w|[-+])+$");
+	      				if(name == 'emails'){
+	      					  pattern = new RegExp("^(?:\\w|[-+.])+@(?:(?:\\w|[-+])+\\.)+(?:\\w|[-+])+$");
 	      					  if(pattern.test(uploadtagName)){
 	      						  invalid = false;
 	      					  }else{
 	      						  invalid = true;
-	      					  }*/
-	      					  invalid = false;
-	      					  var newEmailTag = {'tagName':uploadtagName,'isRemove':false,'type':'new','invalid':invalid};
-	      				 }else if(name == 'recipient'){
-	      					  /*pattern = new RegExp("(?:\\w|[-+.])+@"+$scope.domain_name,"i");
-	      					  if(pattern.test(uploadtagName)){
-	      						  invalid = false;
-	      					  }else{
-	      						  invalid = true;
-	      					  }*/
+	      					  }
 	      					  invalid = false;
 	      					  var newEmailTag = {'tagName':uploadtagName,'isRemove':false,'type':'new','invalid':invalid};
 	      				 }else{
@@ -389,7 +371,7 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 			$scope.submitmanagedata = true;
 			$scope.isformError = false;
 			$scope.managesubmittederror = false;
-			if(name == 'email'){
+			if(name == 'emails'){
 				$.each($scope.newTags,function(newtagindex,newtagvalue){
 					if(newtagvalue.invalid == true){
 						$scope.managesubmittederror = true;
@@ -414,8 +396,7 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 
 				var saveRulesPromise = saveRules(obj);
 				saveRulesPromise.then(function(result){
-					$scope.isformError = false;
-					$modalInstance.close(result.successMessage);
+					$modalInstance.close();
 				},function(reason){
 
 				});
@@ -423,7 +404,7 @@ angularApp.controller('ManageTagsCtlr',['$scope','$modalInstance','managedetails
 
 		}
 
-		$modalInstance.result.then(function(message){
+		$modalInstance.result.then(function(){
 			$scope.refreshcallback();
 		});
 
