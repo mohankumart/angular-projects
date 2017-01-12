@@ -5,7 +5,7 @@ Responsive Layouts (without media queries)
 - Implemented Layout with all responsive panels.
 
 	Project Details
-	- Implemented dynamic layout using custom directive resize.
+	- Implemented dynamic layout using custom angular directive resize.
 	- dynamically calculate and apply width and height of panels identified to resize wrt window size.     
 
 	Definitions: 
@@ -17,6 +17,9 @@ Tag Inputs
 - Tag Inputs UI control can help display and manage user data more efficiently.
 
 	Project Details
+	- Implemented tag input UI control using custom angular directive manage. 
+	
+	Features:
 	- Display panel shows the current configuration data of user.
 	- Deleted panel shows the data which user wants to delete.
 	- New Panel allows user to enter new data.
